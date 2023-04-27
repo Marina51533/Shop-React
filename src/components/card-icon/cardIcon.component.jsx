@@ -7,12 +7,12 @@ import { CardContext } from '../../context/card.context';
 
 
 function CardIcon() {
-    const {isCardOpen, setIsCardOpen}=useContext(CardContext)
+    const {isCardOpen, setIsCardOpen,cardCount}=useContext(CardContext)
     const toggleIsCardOpen = ()=>setIsCardOpen(!isCardOpen)
   return (
     <div className='card-icon-container' onClick={toggleIsCardOpen}>
       <img src={logo} className='shopping-icon'/>
-      <span className='item-count'>O</span>
+      <span className='item-count'>{cardCount}</span>
     </div>
   )
 }
