@@ -4,10 +4,13 @@ import { default as logo } from '../../assets/DLD.png'
 import './navigation.styles.scss'
 import { UserContext } from "../../context/user.context";
 import {signOutUser} from '../../utils/firebase/firebase.utils'
-
+import CardIcon from "../../components/card-icon/cardIcon.component";
+import CardDropdown from "../../components/card-dropdown/cardDropdown.component";
+import { CardContext } from "../../context/card.context";
 
 export default function Navigation() {
     const {currentUser,setCurrentUser} = useContext(UserContext)
+    const {isCardOpen} = useContext(CardContext)
     
     const signOutHandler = async()=>{
         await signOutUser()
@@ -32,7 +35,9 @@ export default function Navigation() {
               SIGN IN
             </Link>
           )}
+          <CardIcon/>
         </div>
+        {isCardOpen && <CardDropdown/>}
       </div>
       <Outlet />
     </Fragment>
