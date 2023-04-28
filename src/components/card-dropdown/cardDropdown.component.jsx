@@ -3,9 +3,14 @@ import Button from '../button/button.component'
 import CardItem from '../card-item/cardItem.component'
 import { useContext } from 'react'
 import { CardContext } from '../../context/card.context'
+import { useNavigate } from 'react-router-dom'
 
 const CardDropdown = () => {
     const {cardItems} = useContext(CardContext)
+    const navigate = useNavigate()
+    const goToCheckoutHandler = ()=>{
+        navigate('/checkout')
+    }
   return (
     <div className='card-dropdown-container'>
       <div className='card-items'>
@@ -13,7 +18,7 @@ const CardDropdown = () => {
             <CardItem key={item.id} cardItem={item}/>
         ))}
       </div>
-      <Button>Click</Button>
+      <Button onClick={goToCheckoutHandler}>Checkout</Button>
     </div>
   )
 }
