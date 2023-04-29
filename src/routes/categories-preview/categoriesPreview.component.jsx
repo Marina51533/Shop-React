@@ -2,6 +2,7 @@
 import { CategoriesContext } from "../../context/categories.context";
 import { useContext,Fragment } from "react";
 
+
 import CategoryPreview from "../../components/category-preview/categoryPreview.component";
 
 const CategoriesPreview = () => {
