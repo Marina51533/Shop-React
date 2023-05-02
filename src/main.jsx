@@ -8,19 +8,23 @@ import './index.scss'
 import { UserProvider } from './context/user.context.jsx';
 import { CategoriesProvider } from "./context/categories.context.jsx";
 import { CardProvider } from './context/card.context.jsx';
+import { Provider } from 'react-redux';
+import { store} from './store/store.js'
 
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <UserProvider>
-        <CategoriesProvider>
-          <CardProvider>
-            <App />
-          </CardProvider>
-        </CategoriesProvider>
-      </UserProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <UserProvider>
+          <CategoriesProvider>
+            <CardProvider>
+              <App />
+            </CardProvider>
+          </CategoriesProvider>
+        </UserProvider>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
